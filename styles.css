@@ -117,63 +117,82 @@ body {
     font-weight: bold;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 992px) {
-    .header-content {
-        padding: 1rem;
-    }
-
-    .nav-menu {
-        gap: 1.5rem;
-    }
-}
-
+/* Mobile Header Styles */
 @media screen and (max-width: 768px) {
     .header {
-        position: relative;
+        display: none; /* Hide the desktop header */
     }
 
-    .header-content {
-        flex-direction: column;
+    .mobile-header {
+        display: block;
+        background-color: #f4f4f4;
+        padding: 10px 15px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .mobile-header-content {
+        display: flex;
+        justify-content: space-between;
         align-items: center;
     }
 
-    .logo {
-        margin-bottom: 1rem;
+    .mobile-logo a {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2c3e50;
+        text-decoration: none;
     }
 
-    .nav-menu {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .nav-link {
-        margin: 0 0.5rem 0.5rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .logo a {
+    .mobile-menu-toggle {
+        cursor: pointer;
         font-size: 1.5rem;
     }
 
-    .nav-link {
-        font-size: 0.9rem;
+    /* Initial state: Hide mobile menu */
+    .mobile-nav-menu {
+        display: none; /* Ensure menu is hidden initially */
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #f4f4f4;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .cart-icon {
-        font-size: 1.2rem;
+    .mobile-nav-menu.active {
+        display: flex; /* Show the menu when active */
     }
-}
 
-/* Additional styling to ensure proper page layout with fixed header */
-body {
-    padding-top: 80px; /* Adjust based on header height */
-}
 
-@media screen and (max-width: 768px) {
+    .mobile-nav-link {
+        padding: 10px 0;
+        text-decoration: none;
+        color: #2c3e50;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .mobile-cart-icon {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    /* Adjust body padding for fixed header */
     body {
-        padding-top: 0;
+        padding-top: 60px;
+    }
+}
+
+/* Desktop view - hide mobile header */
+@media screen and (min-width: 769px) {
+    .mobile-header {
+        display: none;
     }
 }
 

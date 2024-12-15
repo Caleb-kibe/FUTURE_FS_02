@@ -114,6 +114,31 @@ window.addEventListener('click', event => {
     }
 });
 
+
+// Mobile Header
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+
+    if (mobileMenuToggle && mobileNavMenu) {
+        // Toggle menu visibility
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileNavMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNavMenu.classList.remove('active');
+            });
+        });
+    }
+});
+
+
+
+
 // Footer summary and links improvements
 const ourStoryContent = `
     LuxeTile is your ultimate destination for premium floor tiles. With a focus on quality and design,
