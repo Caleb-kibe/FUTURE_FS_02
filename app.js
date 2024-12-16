@@ -117,48 +117,28 @@ window.addEventListener('click', event => {
 
 // Mobile Header
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("JavaScript Loaded"); // Debug log
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileNavMenu = document.querySelector('.mobile-nav-menu');
 
     if (mobileMenuToggle && mobileNavMenu) {
+        console.log("Mobile Menu Elements Found"); // Debug log
+        console.log("Initial Classes on Menu:", mobileNavMenu.classList);
         // Toggle menu visibility
         mobileMenuToggle.addEventListener('click', () => {
+            console.log("Toggle Clicked"); // Debug log
             mobileNavMenu.classList.toggle('active');
+            console.log("Classes after toggle:", mobileNavMenu.classList);
         });
 
-        // Close menu when a link is clicked
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNavMenu.classList.remove('active');
-            });
-        });
+        // // Close menu when a link is clicked
+        // const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        // mobileNavLinks.forEach(link => {
+        //     link.addEventListener('click', () => {
+        //         mobileNavMenu.classList.remove('active');
+        //     });
+        // });
+    } else {
+        console.error("Mobile Menu Elements NOT Found!");
     }
-});
-
-
-
-
-// Footer summary and links improvements
-const ourStoryContent = `
-    LuxeTile is your ultimate destination for premium floor tiles. With a focus on quality and design,
-    we aim to transform your spaces into timeless masterpieces. Explore our diverse collections and 
-    find the perfect fit for your home or office.`;
-
-document.querySelector('footer #our-story').textContent = ourStoryContent;
-
-// Footer navigation enhancements
-const footerLinks = {
-    'Installation Guide': '#installation-guide',
-    FAQs: '#faqs',
-    Support: '#support',
-    'Contact Us': '#contact'
-};
-
-const footerNav = document.querySelector('footer .footer-nav');
-Object.entries(footerLinks).forEach(([name, href]) => {
-    const linkElement = document.createElement('a');
-    linkElement.href = href;
-    linkElement.textContent = name;
-    footerNav.appendChild(linkElement);
 });

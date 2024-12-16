@@ -131,7 +131,7 @@ body {
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 1000;
+        /* z-index: 9999; */
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
@@ -156,18 +156,20 @@ body {
     /* Initial state: Hide mobile menu */
     .mobile-nav-menu {
         display: none; /* Ensure menu is hidden initially */
-        flex-direction: column;
-        position: fixed;
-        top: 60px;
+        /* flex-direction: column; */
+        position: absolute;
+        top: 50px;
         left: 0;
         width: 100%;
         background-color: #f4f4f4;
         padding: 20px;
+        z-index: 1000;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        border: 1px solid #ddd;
     }
 
     .mobile-nav-menu.active {
-        display: flex; /* Show the menu when active */
+        display: block; /* Show the menu when active */
     }
 
 
